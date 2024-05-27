@@ -3,8 +3,14 @@
     <div class="container">
       <h1>My Day</h1>
       <p>All my tasks in one place</p>
-      <input class="new-todo" placeholder="Type new todo" autofocus type="text" [formControl]="newTaskCtrl"
-        (keydown.enter)="changeHandler()" />
+      <input
+        class="new-todo"
+        placeholder="Type new todo"
+        autofocus
+        type="text"
+        [formControl]="newTaskCtrl"
+        (keydown.enter)="changeHandler()"
+      />
     </div>
   </header>
   <div class="container todoapp-wrapper">
@@ -12,13 +18,26 @@
     <section class="main">
       <ul class="todo-list">
         @for (task of tasksByFilter(); track task; let i = $index) {
-        <li (dblclick)="updateTaskEditingMode(i)" [class.editing]="task.editing" [class.completed]="task.completed">
+        <li
+          (dblclick)="updateTaskEditingMode(i)"
+          [class.editing]="task.editing"
+          [class.completed]="task.completed"
+        >
           <div class="view">
-            <input (change)="updateTask(i)" class="toggle" type="checkbox" [checked]="task.completed" />
+            <input
+              (change)="updateTask(i)"
+              class="toggle"
+              type="checkbox"
+              [checked]="task.completed"
+            />
             <label>{{ task.title }}</label>
             <button class="destroy" (click)="deleteTask(i)"></button>
           </div>
-          <input class="edit" (keydown.enter)="updateTaskText(i, $event)" [value]="task.title" />
+          <input
+            class="edit"
+            (keydown.enter)="updateTaskText(i, $event)"
+            [value]="task.title"
+          />
         </li>
         }
         <!--
@@ -54,23 +73,31 @@
     <footer class="footer">
       <!-- This should be `0 items left` by default -->
       <span class="todo-count">
-        <strong>{{tasksByFilter().length}}</strong>
+        <strong>{{ tasksByFilter().length }}</strong>
         @if (tasksByFilter().length === 1) {
         <span> item</span>
-        } @else {
-        items
-        }
+        } @else { items }
       </span>
       <!-- Remove this if you don't implement routing -->
       <ul class="filters">
         <li>
-          <a (click)="changeFilter('all')" [class.selected]="filter() === 'all'">All</a>
+          <a (click)="changeFilter('all')" [class.selected]="filter() === 'all'"
+            >All</a
+          >
         </li>
         <li>
-          <a (click)="changeFilter('pending')" [class.selected]="filter() === 'pending'">Pending</a>
+          <a
+            (click)="changeFilter('pending')"
+            [class.selected]="filter() === 'pending'"
+            >Pending</a
+          >
         </li>
         <li>
-          <a (click)="changeFilter('completed')" [class.selected]="filter() === 'completed'">Completed</a>
+          <a
+            (click)="changeFilter('completed')"
+            [class.selected]="filter() === 'completed'"
+            >Completed</a
+          >
         </li>
       </ul>
       <!-- Hidden if no completed items are left ↓ -->
