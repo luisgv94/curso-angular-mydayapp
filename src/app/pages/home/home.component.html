@@ -15,6 +15,11 @@
   </header>
   <div class="container todoapp-wrapper">
     <!-- This section should be hidden by default and shown when there are todos -->
+    <!-- <pre>
+      <code>
+        {{ tasksByFilter() | json }}
+      </code>
+    </pre> -->
     <section class="main">
       <ul class="todo-list">
         @for (task of tasksByFilter(); track task; let i = $index) {

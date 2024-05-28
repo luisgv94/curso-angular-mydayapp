@@ -9,63 +9,61 @@
     }
   </ul>
   <hr />
-  <h2>{{ 'Hola'.repeat(4) }}</h2>
-  <p> la suma es 3 + 3 es {{ 3 + 3 }}</p>
+  <h2>{{ "Hola".repeat(4) }}</h2>
+  <p>la suma es 3 + 3 es {{ 3 + 3 }}</p>
   <p>Hola soy {{ name() }} y mi edad es {{ age }}</p>
   <hr />
-  <img [src]="person().avatar" alt="">
-  <input type="number" [value]="person().age">
+  <img [src]="person().avatar" alt="" />
+  <input type="number" [value]="person().age" />
   <button [disabled]="disabled">Click me</button>
   <p>person: {{ person().name }}</p>
   <hr />
   <button (click)="clickHandler()">click me</button>
   <button (dblclick)="clickHandler()">double me</button>
   <p>(change)</p>
-  <input type="number" [value]="person().age" (change)="changeHandler($event)">
+  <input
+    type="number"
+    [value]="person().age"
+    (change)="changeHandler($event)"
+  />
   <p>(change)</p>
-  <input type="text" [value]="person().name" (change)="changeHandler($event)">
+  <input type="text" [value]="person().name" (change)="changeHandler($event)" />
   <p>(keydown)</p>
-  <input type="text" [value]="person().name" (keydown)="keydownHandler($event)">
+  <input
+    type="text"
+    [value]="person().name"
+    (keydown)="keydownHandler($event)"
+  />
   <p>(keydown shift )</p>
-  <input type="text" [value]="person().name" (keydown.shift.t)="clickHandler()">
+  <input
+    type="text"
+    [value]="person().name"
+    (keydown.shift.t)="clickHandler()"
+  />
   <hr />
   <h1>Signals</h1>
-  <input type="text" [value]="name()" (change)="changeHandler($event)">
+  <input type="text" [value]="name()" (change)="changeHandler($event)" />
   <p>name: {{ name() }}</p>
   <p>name: {{ name() }}</p>
   <hr />
   <ul>
     <p>total: {{ tasks().length }}</p>
     @for (task of tasks(); track task; let i = $index) {
-    <li>
-      {{ i }} {{ task }}
-    </li>
+    <li>{{ i }} {{ task }}</li>
     }
   </ul>
   <hr />
   @if (1 !== 1) {
-  <div>
-    My contend
-  </div>
-  }
-  @if (name() === 'nicolas') {
-  <div>
-    Soy nicolas
-  </div>
-  }
-  @if (name() === 'nicolas') {
+  <div>My contend</div>
+  } @if (name() === 'nicolas') {
+  <div>Soy nicolas</div>
+  } @if (name() === 'nicolas') {
   <div>Soy Nicolas</div>
   }
-  <input type="number" [value]="person().age" (change)="changeAge($event)">
+  <input type="number" [value]="person().age" (change)="changeAge($event)" />
   @if (person().name === 'nicolas' && person().age > 18) {
-  <div>
-    Soy nicolas y soy mayor de 18
-  </div>
-  } @else {
-
-  Soy nicolas y soy menor de 18
-
-  }
+  <div>Soy nicolas y soy mayor de 18</div>
+  } @else { Soy nicolas y soy menor de 18 }
   <h2>If else new</h2>
   @if (person().name === 'nicolas' && person().age > 18) {
   <strong> Soy nicolas y soy mayor de 18</strong>
@@ -73,53 +71,55 @@
   <i>Soy nicolas y soy menor de 18</i>
   }
   <hr />
-  <input type="text" [value]="person().name" (change)="changeName($event)">
+  <input type="text" [value]="person().name" (change)="changeName($event)" />
   <div>
-    @switch (person().name) {
-    @case ('nicolas') {
+    @switch (person().name) { @case ('nicolas') {
     <p>yo soy nicolas</p>
-    }
-    @case ('julian') {
+    } @case ('julian') {
     <p>yo soy julian</p>
-    }
-    @case ('ana') {
+    } @case ('ana') {
     <p>yo soy ana</p>
-    }
-    @case ('valentina') {
+    } @case ('valentina') {
     <p>yo soy valentina</p>
-    }
-    @default {
+    } @default {
     <p>yo no soy nadie</p>
-    }
-    }
+    } }
   </div>
   <hr />
-  <input type="color" [formControl]="colorCtrl">
+  <input type="color" [formControl]="colorCtrl" />
   <p>color: {{ colorCtrl.value }}</p>
   <svg>
     <g>
-      <rect x="0" y="0" height="100" width="100" [attr.fill]="colorCtrl.value" />
+      <rect
+        x="0"
+        y="0"
+        height="100"
+        width="100"
+        [attr.fill]="colorCtrl.value"
+      />
     </g>
   </svg>
   <hr />
-  <input type="number" [formControl]="widthCtrl">
+  <input type="number" [formControl]="widthCtrl" />
   <span class="box" [style.width.px]="widthCtrl.value"></span>
   <hr />
   <p>
-    <input type="text" [formControl]="nameCtrl"> <br />
-    <span class="message-error" [class.show]="nameCtrl.invalid && nameCtrl.touched">Nombre invalido</span>
+    <input type="text" [formControl]="nameCtrl" /> <br />
+    <span
+      class="message-error"
+      [class.show]="nameCtrl.invalid && nameCtrl.touched"
+      >Nombre invalido</span
+    >
   </p>
   <p>
-    <input type="text">
+    <input type="text" />
   </p>
   <hr />
   <h2>New for</h2>
   <ul>
     <p>total: {{ tasks().length }}</p>
     @for (task of tasks(); track task; let i = $index) {
-    <li>
-      {{ i }} {{ task }}
-    </li>
+    <li>{{ i }} {{ task }}</li>
     }
   </ul>
   <ul>
@@ -132,39 +132,27 @@
   <hr />
   <h2>New Switch</h2>
   <div>
-    @switch (person().name) {
-    @case ('nicolas') {
+    @switch (person().name) { @case ('nicolas') {
     <p>yo soy nicolas</p>
-    }
-    @case ('julian') {
+    } @case ('julian') {
     <p>yo soy julian</p>
-    }
-    @case ('ana') {
+    } @case ('ana') {
     <p>yo soy ana</p>
-    }
-    @case ('valentina') {
+    } @case ('valentina') {
     <p>yo soy valentina</p>
-    }
-    @default {
+    } @default {
     <p>yo no soy nadie</p>
-    }
-    }
+    } }
   </div>
   <div>
-    @switch(person().name) {
-    @case('nicolas') {
+    @switch(person().name) { @case('nicolas') {
     <p>yo soy nicolas</p>
-    }
-    @case('julian') {
+    } @case('julian') {
     <p>yo soy julian</p>
-    }
-    @case('ana') {
+    } @case('ana') {
     <p>yo soy ana</p>
-    }
-    @default {
+    } @default {
     <p>yo no soy nadie</p>
-    }
-    }
+    } }
   </div>
-
 </div>
